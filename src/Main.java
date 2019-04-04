@@ -3,15 +3,15 @@ import java.math.BigInteger;
 public class Main {
 
 
-	//ºó¼Ìº¯Êı
+	//åç»§å‡½æ•°
 	public static int S(int X) {
 		return X+1;
 	}
-	//Áãº¯Êı
+	//é›¶å‡½æ•°
 	public static int N(int X) {
 		return 0;
 	}
-	//Í¶Ó°º¯Êı£¬ 1 <= i<= n
+	//æŠ•å½±å‡½æ•°ï¼Œ 1 <= i<= n
 	public static int U(int i,int[] X) throws Exception{
 		if(i>0 && i<=X.length) return X[i-1];
 		else throw new Exception();
@@ -26,7 +26,7 @@ public class Main {
 		if(Y==0) return 0;
 		return mul(X,Y-1)+X;
 	}
-	//3. n! ¶à´Îµİ¹éµ÷ÓÃ¸Ã·½·¨»áÔì³ÉÕ»Òç³ö¡£
+	//3. n! å¤šæ¬¡é€’å½’è°ƒç”¨è¯¥æ–¹æ³•ä¼šé€ æˆæ ˆæº¢å‡ºã€‚
 	public static int fac(int X) {
 		if(X==0) return 1;
 		else return fac(X-1)*X;
@@ -44,12 +44,12 @@ public class Main {
 		if(Y==0) return 1;
 		return mul(exp(X,Y-1),X);
 	}
-	//5. P(X) Ç°Çıº¯Êı£¬º¯ÊıÖµÎªX-1£¨ÈôX=0£¬º¯ÊıÖµÎª0£©
+	//5. P(X) å‰é©±å‡½æ•°ï¼Œå‡½æ•°å€¼ä¸ºX-1ï¼ˆè‹¥X=0ï¼Œå‡½æ•°å€¼ä¸º0ï¼‰
 	public static int P(int X) {
 		if(X>0) return X-1;
 		return 0;
 	}
-	//6. X¦¨Y
+	//6. XÎ˜Y
 	public static int sub(int X,int Y) {
 		if(Y==0) return X;
 		return P(sub(X,Y-1));
@@ -58,39 +58,39 @@ public class Main {
 	public static int abs(int X,int Y) {
 		return sub(X,Y)+sub(Y,X);
 	}
-	//8. ¦Á(X) ÈôX==0£¬ ¦Á(X)=1£¬ÆäËüÎª0
-	public static int ¦Á(int X) {
+	//8. Î±(X) è‹¥X==0ï¼Œ Î±(X)=1ï¼Œå…¶å®ƒä¸º0
+	public static int Î±(int X) {
 		return sub(1,X);
 	}
-	//9. ¡Æt¡ÜY f(X1,¡­, Xn, t) 
+	//9. âˆ‘tâ‰¤Y f(X1,â€¦, Xn, t) 
 	public static int h(int[] X,int Y) {
 		if(Y==0) return 0;
 		return add(h(X,Y-1),X[Y-1]);
 	}
-	//10. ¡Çt¡ÜY f(X1,¡­, Xn, t£© 
+	//10. âˆtâ‰¤Y f(X1,â€¦, Xn, tï¼‰ 
 	public static int g(int[] X,int Y) {
 		if(Y==0) return 1;
 		return mul(g(X,Y-1),X[Y-1]);
 	}
-	//11. d(X, Y)¶¨ÒåÎª£ºÈô X=YÔòd(X, Y) £½ 0   Èô X¡ÙYÔòd(X, Y) £½ 1 
+	//11. d(X, Y)å®šä¹‰ä¸ºï¼šè‹¥ X=Yåˆ™d(X, Y) ï¼ 0   è‹¥ Xâ‰ Yåˆ™d(X, Y) ï¼ 1 
 	public static int d(int X,int Y) {
-		return ¦Á(¦Á(abs(X,Y)));
+		return Î±(Î±(abs(X,Y)));
 	}
-	//12. X£½Y
+	//12. Xï¼Y
 	public static boolean X_qual_Y(int X,int Y){
 		if(d(X,Y)==0) return true;
 		return false;
 	}
 	//13. X>Y
 	public static boolean X_greater_Y(int X,int Y) {
-		if(¦Á(sub(X,Y))==0) return true;
+		if(Î±(sub(X,Y))==0) return true;
 		return false;
 	}
 	//14. X<=Y
 	public static boolean X_lessORequal_Y(int X,int Y) {
 		return !X_greater_Y(X,Y);
 	}
-	//15. Y¨OX  	_______¡°YÕû³ıX¡±£¬Î½´Ê 
+	//15. Yâˆ£X  	_______â€œYæ•´é™¤Xâ€ï¼Œè°“è¯ 
 	public static boolean Y_divide_X(int X,int Y){
 		int t=0;
 		while(t<=X) {
@@ -99,7 +99,7 @@ public class Main {
 		}
 		return false;
 	}
-	//16. [Y/X] ________º¯ÊıÖµÊÇXÕû³ıYµÄÉÌ 
+	//16. [Y/X] ________å‡½æ•°å€¼æ˜¯Xæ•´é™¤Yçš„å•† 
 	public static int Y_quotient_X(int X,int Y) {
 		int t=0;
 		while(t<=Y) {
@@ -108,7 +108,7 @@ public class Main {
 		}
 		return t;
 	}
-	//17. Prim(X)  _______¡°XÊÇËØÊı¡±£¬Î½´Ê
+	//17. Prim(X)  _______â€œXæ˜¯ç´ æ•°â€ï¼Œè°“è¯
 	public static boolean prim(int X) {
 		if(X<=1) return false;
 		int t=1;
@@ -118,7 +118,7 @@ public class Main {
 		}
 		return true;
 	}
-	//18. Pi ¡ª¡ªº¯ÊıÖµÊÇµÚi¸öËØÊı (Ô¼¶¨ P0£½0ÊÇµÚ0¸öËØÊı£» P1£½2ÊÇµÚ1¸öËØÊı£» P2£½3ÊÇµÚ2¸öËØÊı£» P3 £½5ÊÇµÚ3¸öËØÊı)
+	//18. Pi â€”â€”å‡½æ•°å€¼æ˜¯ç¬¬iä¸ªç´ æ•° (çº¦å®š P0ï¼0æ˜¯ç¬¬0ä¸ªç´ æ•°ï¼› P1ï¼2æ˜¯ç¬¬1ä¸ªç´ æ•°ï¼› P2ï¼3æ˜¯ç¬¬2ä¸ªç´ æ•°ï¼› P3 ï¼5æ˜¯ç¬¬3ä¸ªç´ æ•°)
 	public static int Pi(int i) {
 		if(i==0) return 0;
 		if(i==1) return 2;
@@ -129,22 +129,22 @@ public class Main {
 		}
 		return j-1;
 	}
-	//19. R(X, Y)   	____º¯ÊıÖµÊÇY³ıXÊ±µÄÓàÊı
+	//19. R(X, Y)   	____å‡½æ•°å€¼æ˜¯Yé™¤Xæ—¶çš„ä½™æ•°
 	public static int R(int X,int Y) {
 		if(Y>X) return X;
 		return X-Y*Y_quotient_X(Y, X);
 	}
-	//20. t(X)  ¡ª¡ªº¯ÊıÖµÎªÔÚXµÄËØÒò×Ó·Ö½âÖĞ·ÇÁãÖ¸ÊıµÄ¸öÊı£¬t(0)¶¨ÒåÎª0£ûÀı£º20£½223051 ¹Ê t(20)£½2
+	//20. t(X)  â€”â€”å‡½æ•°å€¼ä¸ºåœ¨Xçš„ç´ å› å­åˆ†è§£ä¸­éé›¶æŒ‡æ•°çš„ä¸ªæ•°ï¼Œt(0)å®šä¹‰ä¸º0ï½›ä¾‹ï¼š20ï¼223051 æ•… t(20)ï¼2
 	public static int t(int X) {
 		return Lh(X,X);
 	}
-	//£ºÁîLh(i, X)ÎªÇ°i£­1¸öËØÊıÖĞÄÜÕû³ıXµÄËØÊıµÄ¸öÊı£¬
+	//ï¼šä»¤Lh(i, X)ä¸ºå‰iï¼1ä¸ªç´ æ•°ä¸­èƒ½æ•´é™¤Xçš„ç´ æ•°çš„ä¸ªæ•°ï¼Œ
 	public static int Lh(int i,int X) {
 		if(i==0) return 0;
 		if(X%Pi(i)==0) return Lh(i-1,X)+1;
 		return Lh(i-1,X);
 	}
-	//21. (X)i ¡ª¡ªº¯ÊıÖµÎªXµÄËØÒò×Ó·Ö½âÖĞ µÚi¸öËØÊıµÄÖ¸Êı£¬¼´PiµÄÖ¸
+	//21. (X)i â€”â€”å‡½æ•°å€¼ä¸ºXçš„ç´ å› å­åˆ†è§£ä¸­ ç¬¬iä¸ªç´ æ•°çš„æŒ‡æ•°ï¼Œå³Piçš„æŒ‡
 	public static int Xi(int X,int i) {
 		if(i==0) return 0;
 		int Pi = Pi(i);
@@ -153,7 +153,7 @@ public class Main {
 		}
 		return 0;
 	}
-	//22. Lt(X)   ¡ª¡ªº¯ÊıÖµÎªXËØÒò×Ó·Ö½âÖĞ£¬·Ç0Ö¸ÊıµÄ×î´óËØÊıµÄĞòºÅ
+	//22. Lt(X)   â€”â€”å‡½æ•°å€¼ä¸ºXç´ å› å­åˆ†è§£ä¸­ï¼Œé0æŒ‡æ•°çš„æœ€å¤§ç´ æ•°çš„åºå·
 	public static int Lt(int X) {
 		int temp = 0;
 		for(int i=1;i<=X;i++) {
@@ -162,33 +162,143 @@ public class Main {
 		}
 		return temp;
 	}
-	//23. GN(X)    Î½´Ê ¡ª¡ªÎ½´Ê±íÊ¾£ºÈô¶ÔËùÓĞi¡ÜLt(X)¶¼ÓĞ(X)i¡Ù0£¬ ÔòÎ½´ÊGN(X)ÎªÕæ¡£ ¼´ÔÚXµÄËØÒò×Ó·Ö½âÖĞÃ»ÓĞÁãÖ¸ÊıÊ±£¬Î½´ÊÎªÕæ
-	
-	
+	//23. GN(X)    è°“è¯ â€”â€”è°“è¯è¡¨ç¤ºï¼šè‹¥å¯¹æ‰€æœ‰iâ‰¤Lt(X)éƒ½æœ‰(X)iâ‰ 0ï¼Œ åˆ™è°“è¯GN(X)ä¸ºçœŸã€‚ å³åœ¨Xçš„ç´ å› å­åˆ†è§£ä¸­æ²¡æœ‰é›¶æŒ‡æ•°æ—¶ï¼Œè°“è¯ä¸ºçœŸ
+	public static boolean GN(int X) {
+		int n = Lt(X);
+		for(int i=1;i<=n;i++) {
+			if(Xi(X,i)==0) return false;
+		}
+		return true;
+	}
+	//24. [a1ï¼Œâ€¦ï¼Œan]  æ­¤å‡½æ•°è¢«ç§°ä¸ºGÃ¶delæ•°ï¼Œè¡¨ç¤ºP1a1 PÂ· 2a2Â·â€¦Â·Pnan ç”±å®šä¹‰çŸ¥[a1ï¼Œâ€¦ï¼Œan]ï¼âˆi=1â€¦nPiai
+	public static int Godel(int[] A) {
+		int s =1;
+		for(int i=0;i<A.length;i++) {
+			s *= exp(Pi(i+1),A[i]);
+		}
+		return s;
+	}
+	//25. X*Y   ï¼ˆ*ç§°ä¸ºGÃ¶delä¹˜ï¼‰å¦‚æœ‰ï¼šXï¼[a1,â€¦,an] ï¼ŒYï¼[b1,â€¦,bm]åˆ™ X*Y ï¼[a1,â€¦,an, b1,â€¦,bm]
+	public static int Godel_mul(int[] X,int[] Y) {
+		int s = 1, n=X.length, m=Y.length;
+		for(int i=0;i<m;++i) {
+			s *= exp(Pi(i+1+n),Y[i]);
+		}
+		return Godel(X)*s;
+	}
+	//26. #(aï¼ŒX) â€”â€”è¡¨ç¤ºåœ¨Xçš„ç´ å› å­åˆ†è§£ä¸­æŒ‡æ•°ä¸ºaçš„ç´ å› å­çš„ä¸ªæ•° 60ï¼22 3Â· 1 5Â· 1 #(1, 60)=2
+	public static int aX(int a,int X) {
+		int n = Lt(X), s=0;
+		for(int i=1;i<=n;++i) {
+			s += F(a,i,X);
+		}
+		return s;
+	}
+	public static int F(int a, int i, int X) {
+		if(a==Xi(X,i)) return 1;
+		return 0;
+	}
+	//27. <X, Y>  â€”â€”ä¸Šå¯¹è§’çŸ©é˜µä¸­å…ƒç´ aXY çš„Cantorå¯¹è§’çº¿ç¼–ç  
+	/**
+	 * æ ¹æ®ç¼–ç è§„åˆ™çŸ¥ï¼Œè‹¥aijä¸amnåŒåœ¨ä¸€æ¡å¯¹è§’çº¿ä¸Šï¼Œ
+	 * åˆ™ æœ‰i+j=m+nï¼›æ•…æœ‰ aXY åº”å’Œa(X+Y)0åœ¨ç›¸åŒå¯¹è§’çº¿ä¸Šï¼Œ
+	 *  å³ç¬¬X+Y+1æ¡å¯¹è§’çº¿ä¸Šï¼Œå‰X+Yæ¡å¯¹è§’çº¿å…ƒç´ ä¸ªæ•° çš„æ€»å’Œï¼Œ
+	 *  å†åŠ ä¸ŠYæ—¢æ˜¯å…ƒç´ aXY çš„ç¼–ç ã€‚
+	 *  å³ï¼š<X, Y>ï¼âˆ‘(X+Y)+Yï¼(Xï¼‹Y)(Â·Xï¼‹Yï¼‹1) / 2ï¼‹Y
+	 */
+	public static int cantor(int X,int Y) {
+		return (X+Y)*(X+Y+1)/2 +Y;
+	}
+	//28. r(Z)
+	/**
+	 * r(Z)    ï¼ˆè‹¥ä»¤Z ï¼ <X, Y> ï¼Œr(Z)ï¼r(<X, Y>)ï¼Y  
+	 * 			 ä»ä¸€ä¸ªæ•°å”¯ä¸€æ±‚å‡ºä¸¤ä¸ªæ•°ï¼Œå–å³éƒ¨ï¼‰ 
+	 * è¯æ˜ï¼šç”±27çŸ¥ Z ï¼ âˆ‘(X+Y) +Y 
+	 * åˆï¼šr(Z)ï¼Zï¼âˆ‘(X+Y)   ï¼ˆä»¤h(n)=1+2+â€¦+nï¼‰ 
+	 * æ•…ï¼šr(Z)ï¼Zï¼h(min n â‰¤ Z (h(n)â‰¤Zâˆ§Z<h(n+1)))  
+	 * ï¼ˆå› Z =âˆ‘(X+Y) +Y=h(n) +Y  
+	 *   è€Œn=X+Y ï¼Œæ•…æœ‰Yâ‰¤nï¼› 
+	 *   è€Œh(n+1)= h(n) +n+1 
+	 *   æ•…å¿…æœ‰h(n)â‰¤ Z<h(n+1) æ’çœŸ)
+	 */
+	public static int r(int Z) {
+		for(int n=0;n<=Z;++n) {
+			if(h(n)<=Z && Z<h(n+1)) return Z-h(n);
+		}
+		return -1;
+	}
+	public static int h(int n) {
+		int s=0;
+		for(int i=1;i<=n;i++) {
+			s += i;
+		}
+		return s;
+	}
+	//29. L(Z)
+	/**
+	 *  L(Z) ï¼ˆè‹¥ä»¤Z ï¼ <X, Y> ï¼ŒL(Z)ï¼L(<X, Y>)ï¼X
+	 *  		ä»ä¸€ä¸ªæ•°å”¯ä¸€æ±‚å‡ºä¸¤ä¸ªæ•°ï¼Œå–å·¦éƒ¨ï¼‰
+	 *  è¯æ˜ï¼š
+	 *  	L(Z) ï¼minnâ‰¤Z(h(n)â‰¤Zâˆ§Z<h(n+1)) âˆ’ r(Z) ïƒ˜
+	 *  ä»¥ä¸Šå‡½æ•°27å¯ä»¥æŠŠä¸¤ä¸ªæ•°æ˜ å°„ä¸ºå”¯ä¸€çš„ä¸€ä¸ªæ•°
+	 *  å‡½æ•°28ã€29å¯ä»ä»»æ„çš„ä¸€ä¸ªæ•°å”¯ä¸€è¿˜åŸä¸ºä¸¤ä¸ªæ•°
+	 */
+	public static int L(int Z) {
+		for(int n=0;n<=Z;++n) {
+			if(h(n)<=Z && Z<h(n+1)) return n-r(Z);
+		}
+		return -1;
+	}
+	//30. PROGï¼ˆXï¼‰ 
+	/**
+	 * PROGï¼ˆXï¼‰ ________åŸå§‹é€’å½’è°“è¯
+	 * è¡¨ç¤ºè‹¥Xæ˜¯æŸPâ€”Tç¨‹åºçš„GÃ¶delæ•°ï¼Œåˆ™è°“è¯ä¸ºçœŸï¼Œ
+	 * å¦åˆ™ä¸ºå‡
+	 * è¯æ˜ï¼š PROG(X) 
+	 * (âˆ€i)â‰¤Lt(X)((i=0âˆ¨r((x)i)â‰ 0) 
+	 * âˆ§ï½((âˆƒi)â‰¤Lt(X) (âˆƒj)< Lt(X)(i<>j âˆ§
+	 * 						        l((x)i)=l((x)j)âˆ§
+	 * 								l((x)i)â‰ 0)))
+	 */
+	public static boolean PROG(int X) {
+		
+		return false;
+	}
 	
 	public static void main(String[] args) {
-		System.out.println("1. 2+3="+add(2,3));
-		System.out.println("2. 2*3="+mul(2,3));
-		System.out.println("3. 3!="+fac(3));
-		System.out.println("4. 2^3="+exp(2,3));
-		System.out.println("5. "+P(3));
-		System.out.println(sub(4,1));
-		System.out.println(abs(3,5));
-		System.out.println("¦Á(5)="+ ¦Á(5)+"    ¦Á(0)="+ ¦Á(0));
+		System.out.println("01. 2+3="+add(2,3));
+		System.out.println("02. 2*3="+mul(2,3));
+		System.out.println("03. 3!="+fac(3));
+		System.out.println("04. 2^3="+exp(2,3));
+		System.out.println("05. å‰é©±å‡½æ•°ï¼ŒP(3)="+P(3));
+		System.out.println("06. 4-1="+sub(4,1));
+		System.out.println("07. |3-5|="+abs(3,5));
+		System.out.println("08. Î±(5)="+ Î±(5)+"    Î±(0)="+ Î±(0));
 		int[] t = {1,2,5,3};
-		System.out.println(h(t,3));
-		System.out.println(g(t,3));
+		System.out.println("09. t={1,2,5,3},h(t,3)="+h(t,3));
+		System.out.println("10. t={1,2,5,3},g(t,3)="+g(t,3));
 		System.out.println("11. d(2,3)="+d(2,3)+"    d(2,2)="+d(2,2));
 		System.out.println("12. 2=3? "+X_qual_Y(2, 3));
 		System.out.println("13. 2>3? "+X_greater_Y(2, 3));
 		System.out.println("14. 2<=3? "+X_lessORequal_Y(2, 3));
-		System.out.println("15. 3Õû³ı12£¿ "+Y_divide_X(12, 3));
-		System.out.println("16. 2Õû³ı4µÄÉÌ£º"+Y_quotient_X(2,4)+"  3Õû³ı4µÄÉÌ£º"+Y_quotient_X(3,4)+"  5Õû³ı4µÄÉÌ£º"+Y_quotient_X(5,4));
-		System.out.println("17. 5ÊÇËØÊı£¿"+prim(5)+"  6ÊÇËØÊı£¿"+prim(6));
-		System.out.println("18. µÚ6¸öËØÊı£¿"+Pi(6));
+		System.out.println("15. 3æ•´é™¤12ï¼Ÿ "+Y_divide_X(12, 3));
+		System.out.println("16. 2æ•´é™¤4çš„å•†ï¼š"+Y_quotient_X(2,4)+"  3æ•´é™¤4çš„å•†ï¼š"+Y_quotient_X(3,4)+"  5æ•´é™¤4çš„å•†ï¼š"+Y_quotient_X(5,4));
+		System.out.println("17. 5æ˜¯ç´ æ•°ï¼Ÿ"+prim(5)+"  6æ˜¯ç´ æ•°ï¼Ÿ"+prim(6));
+		System.out.println("18. ç¬¬6ä¸ªç´ æ•°ï¼Ÿ"+Pi(6));
 		System.out.println("19. 7%4="+R(7,4));
 		System.out.println("20. t(20)="+t(20));
-		System.out.println("21. 20ËØÒò×Ó·Ö½âÖĞµÚ3¸öËØÊı(¼´5)µÄÖ¸Êı:"+Xi(20,3));
+		System.out.println("21. 20ç´ å› å­åˆ†è§£ä¸­ç¬¬3ä¸ªç´ æ•°(å³5)çš„æŒ‡æ•°:"+Xi(20,3));
 		System.out.println("22. Lt(20)="+Lt(20)+"  Lt(60)="+Lt(60));
+		System.out.println("23. GN(60)="+GN(60)+"  GN(10)="+GN(10));
+		int[] A = {2,0,1},B= {2,1,1};
+		int[] C = {2,0,1,2,1,1};
+		System.out.println("24. [2,0,1]="+Godel(A)+"  [2,1,1]="+Godel(B)+"  [2,0,1,2,1,1]="+Godel(C));
+		System.out.println("25. A*B="+Godel_mul(A, B));
+		System.out.println("26. #(1,60)="+aX(1,60));
+		System.out.println("27. åº·æ‰˜ç¼–ç ï¼Œ<2,3>="+cantor(2, 3));
+		System.out.println("28. åº·æ‰˜ç¼–ç ï¼Œr(18)="+r(18));
+		System.out.println("29. åº·æ‰˜ç¼–ç ï¼ŒL(18)="+L(18));
+		
+		System.out.println("30. ");
 	}
 }
