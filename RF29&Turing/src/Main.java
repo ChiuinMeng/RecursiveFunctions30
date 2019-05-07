@@ -261,8 +261,21 @@ public class Main {
 	 * 								l((x)i)≠0)))
 	 */
 	public static boolean PROG(int X) {
-		
-		return false;
+		int LtX = Lt(X);
+		int[] XI = new int[LtX+1];
+		for(int i=0;i<=LtX;i++){
+			XI[i] = Xi(X,i);
+		}
+//		System.out.println("initial finish");//为了减少重复运算
+		for(int i=0;i<=LtX;i++){
+			if(! (i==0||r(XI[i])!=0 )) return false;
+		}
+		for(int i=0;i<LtX;i++){
+			for(int j=0;j<LtX;j++){
+				if(i!=j && L(XI[i])==L(XI[j]) && L(XI[i])!=0 )return false;
+			}
+		}
+		return true;
 	}
 	
 	public static void main(String[] args) {
@@ -287,7 +300,7 @@ public class Main {
 		System.out.println("18. 第6个素数？"+Pi(6));
 		System.out.println("19. 7%4="+R(7,4));
 		System.out.println("20. t(20)="+t(20));
-		System.out.println("21. 20素因子分解中第3个素数(即5)的指数:"+Xi(20,3));
+		System.out.println("21. (X)i---->20素因子分解中第3个素数(即5)的指数:"+Xi(20,3));
 		System.out.println("22. Lt(20)="+Lt(20)+"  Lt(60)="+Lt(60));
 		System.out.println("23. GN(60)="+GN(60)+"  GN(10)="+GN(10));
 		int[] A = {2,0,1},B= {2,1,1};
@@ -298,7 +311,8 @@ public class Main {
 		System.out.println("27. 康托编码，<2,3>="+cantor(2, 3));
 		System.out.println("28. 康托编码，r(18)="+r(18));
 		System.out.println("29. 康托编码，L(18)="+L(18));
-		
-		System.out.println("30. ");
+
+		int ptg = (int) (Math.pow(2,2)*Math.pow(3,2)); //代表程序: RIGHT RIGHT
+		System.out.println("30. PROG(X)---->"+ptg+"是某P-T程序的Godel数吗？"+PROG(ptg));
 	}
 }
